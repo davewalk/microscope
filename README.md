@@ -42,7 +42,7 @@ Following along with the [Discover Meteor](http://www.discovermeteor.com) book.
 * Use `Meteor.publish` and `Meteor.subscribe` to limit the client's collection of the data
 
 ### Meteorite Commands
-`mrt mongo`: Mongo database shell
+`mrt mongo`: Mongo database shell  
 `mrt reset`: Reset the database
 
 ### Other Notes
