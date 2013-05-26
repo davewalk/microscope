@@ -41,6 +41,11 @@ Following along with the [Discover Meteor](http://www.discovermeteor.com) book.
 * On the client a collection is a local subset of the database of the collection that's been defined by the user
 * Use `Meteor.publish` and `Meteor.subscribe` to limit the client's collection of the data
 
+### Publications & Subscriptions
+* A publication is a way to transfer data from the server collection to the target client-side collection. It controls what exactly is passed through. The protocol that it uses in Meteor is called Distributed Data Protocol (DDP).
+* With `Meteor.publish` you can control what you publish to the client. Return a cursor like `Posts.find({'author':'Tom'});` to limit what you send back.
+* Use `fields` as the second parameter to find() to exclude certain fields: `Posts.find({}, {fields: { author: false }});`
+
 ### Meteorite Commands
 `mrt mongo`: Mongo database shell  
 `mrt reset`: Reset the database
