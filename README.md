@@ -46,6 +46,17 @@ Following along with the [Discover Meteor](http://www.discovermeteor.com) book.
 * With `Meteor.publish` you can control what you publish to the client. Return a cursor like `Posts.find({'author':'Tom'});` to limit what you send back.
 * Use `fields` as the second parameter to find() to exclude certain fields: `Posts.find({}, {fields: { author: false }});`
 
+### Routing
+* `router` is a third-party package that you must explicitly install
+* Only job is to map URLs to specific templates
+* Has a `{{renderPage}}` helper - put it in your layout file
+* `Meteor.Router.add` joins a URL path to a template
+* This also gives you a handlebars helper of ``{templateNamePath}} that you can use to set links 
+* You can also pass an object with attributes `to` and `and` in a route. The `and` passes parameters into the routed template
+
+### Sessions
+* Sessions are Meteor's global store of state in the browser, living only on the client.
+
 ### Meteorite Commands
 `mrt mongo`: Mongo database shell  
 `mrt reset`: Reset the database
