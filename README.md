@@ -55,7 +55,10 @@ Following along with the [Discover Meteor](http://www.discovermeteor.com) book.
 * You can also pass an object with attributes `to` and `and` in a route. The `and` passes parameters into the routed template
 
 ### Sessions
-* Sessions are Meteor's global store of state in the browser, living only on the client.
+* Sessions are Meteor's global store of state in the browser (as a singleton object), living only on the client.
+* Pass key/value pairs to `Session.set` and naturally there's a `Session.get` too
+* Always store user state in the `Session` object to the URL so that users are minimally disrupted on hot code pushes
+* Store any state that you want shareable between users in the URL
 
 ### Meteorite Commands
 `mrt mongo`: Mongo database shell  
