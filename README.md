@@ -60,6 +60,12 @@ Following along with the [Discover Meteor](http://www.discovermeteor.com) book.
 * Always store user state in the `Session` object to the URL so that users are minimally disrupted on hot code pushes
 * Store any state that you want shareable between users in the URL
 
+### User Accounts
+* Ridiculously simple with the `accounts-ui` package (there's a Bootstrap version too)
+* Then use the `{{loginButtons}}` helper and you can see the alignment with `align=`
+* This package creates a new `users` collection in the database that stores user information T
+* The package autopublishes _only_ the current users information to the client and only the `_id` and `username`. On the server there's more information including a salted version of the user's password
+
 ### Meteorite Commands
 `mrt mongo`: Mongo database shell  
 `mrt reset`: Reset the database
