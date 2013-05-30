@@ -66,6 +66,11 @@ Following along with the [Discover Meteor](http://www.discovermeteor.com) book.
 * This package creates a new `users` collection in the database that stores user information T
 * The package autopublishes _only_ the current users information to the client and only the `_id` and `username`. On the server there's more information including a salted version of the user's password
 
+### Security
+* By default Meteor is left insecure so that you can quickly start building, but eventually you have to stop people from saving to the database from the console
+* The first thing to do is remove the insecure package: `mrt remove insecure`
+* Use a collection's `allow` method to set the rules in which users can allowed to do things to that collection
+
 ### Reactivity
 * A computation is a block of code that runs every time one of the data sources it depends on is updated. Meteor will setup most of the ones you'll need automatically, but it's useful to know how to do it yourself
 * Wrap `Deps.autorun` in the function that you want to run every time it's data source gets updated
