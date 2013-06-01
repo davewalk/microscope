@@ -9,6 +9,11 @@ Template.postSubmit.events({
     }
 
     post._id = Posts.insert(post);
-    Meteor.Router.to('postPage', post);
+
+    Meteor.call('post', post, function (err, id) {
+      if (err) return alert(err.reason);
+
+      Meteor.Router.to('postPage', id);
+    });
   }
 });

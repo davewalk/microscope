@@ -70,6 +70,7 @@ Following along with the [Discover Meteor](http://www.discovermeteor.com) book.
 * By default Meteor is left insecure so that you can quickly start building, but eventually you have to stop people from saving to the database from the console
 * The first thing to do is remove the insecure package: `mrt remove insecure`
 * Use a collection's `allow` method to set the rules in which users can allowed to do things to that collection
+* Use `Meteor.Router.filters` to do things like require login
 
 ### Reactivity
 * A computation is a block of code that runs every time one of the data sources it depends on is updated. Meteor will setup most of the ones you'll need automatically, but it's useful to know how to do it yourself
@@ -82,3 +83,4 @@ Following along with the [Discover Meteor](http://www.discovermeteor.com) book.
 ### Other Notes
 * `var` limits the scope of an object in Meteor, which sometimes won't be useful if you want to share code between
   client and server
+  * `mrt add spin` for a "loading" spinner template partials
