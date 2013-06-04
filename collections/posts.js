@@ -17,14 +17,24 @@ Meteor.methods({
 				postWithSameLink._id);
 		}
 
-		var post = _.extend(_.pick(postAttrs, 'url', 'title', 'message'), {
+		var post = _.extend(_.pick(postAttrs, 'url'), {
+			title: postAttrs.title + (this.isSimulation ? '(client)' : '(server)'),
 			userId: user._id,
 			author: user.username,
 			submitted: new Date().getTime()
 		});
 
-		var postId = Posts.insert(post);
+		if (! this.isSimulation) {	
+			var	Future = Npm.require('fibers/future');
+			var future = new Future();
 
-		return postId;
+			Meteor.setTimeout(function() {
+				future.ret();
+			}, 5 * 1000);
+			future.wait();
+		}
+		
+		var postId = Posts.insert(post);
+		return postId;	
 	}
 });

@@ -76,6 +76,10 @@ Following along with the [Discover Meteor](http://www.discovermeteor.com) book.
 * A computation is a block of code that runs every time one of the data sources it depends on is updated. Meteor will setup most of the ones you'll need automatically, but it's useful to know how to do it yourself
 * Wrap `Deps.autorun` in the function that you want to run every time it's data source gets updated
 
+### Latency Compensation
+* To deal with latency and appear to be incredibly responsive, Meteor can fire simulated updates on the client while the server is making the real update.
+* There are three latency compensation methods with each collection: `insert`, `update` and `delete`. These methods do two things: checks to see if the operation can be performed by calling `allow` and `deny` callbacks and make the actual modification to the data store. Because of latency compensation, a change on the client may be corrected if the server eventually denies it.
+
 ### Meteorite Commands
 `mrt mongo`: Mongo database shell  
 `mrt reset`: Reset the database
